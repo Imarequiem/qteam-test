@@ -10,5 +10,6 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['src/shared/api', 'src/shared/lib']
   },
-  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon']
+  modules: ['@nuxt/eslint', '@nuxt/fonts', '@nuxt/icon'],
+  css: ['@/app/styles/main.css'],
 })
