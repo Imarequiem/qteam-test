@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
 @import '@/shared/assets/fonts/tt-commons/fonts.css';
 
 :root {
