@@ -10,8 +10,8 @@
 
     <button
       v-for="page in visiblePages"
-      :key="page"
       class="pagination-button"
+      :key="page"
       :class="{ 'active': page === currentPageModel }"
       @click="currentPageModel = page"
     >
@@ -41,14 +41,14 @@ const emit = defineEmits<{
   'update:currentPage': [value: number]
 }>()
 
-const currentPageModel = computed({
+const currentPageModel = computed<number>({
   get: () => props.currentPage,
   set: (value) => emit('update:currentPage', value)
 })
 
-const totalPages = computed(() => Math.ceil(props.totalItems / props.perPage))
+const totalPages = computed<number>(() => Math.ceil(props.totalItems / props.perPage))
 
-const visiblePages = computed(() => {
+const visiblePages = computed<number[]>(() => {
   const maxVisible = 5
   const halfVisible = Math.floor(maxVisible / 2)
 

@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/ui',
     '@pinia/nuxt',
+    '@nuxt/image',
   ],
   css: ['@/app/styles/main.css'],
 })

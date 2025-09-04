@@ -9,21 +9,22 @@
         v-for="post in postStore.paginatedPosts"
         :key="post.id"
         :post="post"
+        @click="navigateTo(`/post/${post.id}`)"
       />
     </div>
 
     <pagination-component
+      class="pagination"
       :current-page="postStore.currentPage"
       :total-items="postStore.posts.length"
       :per-page="postStore.pageSize"
-      class="pagination"
       @update:current-page="postStore.setCurrentPage"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted } from 'vue'
 import { usePostStore } from '~/entities/post/store/postStore'
 
 import postComponent from '@/entities/post/postComponent.vue'
@@ -31,23 +32,15 @@ import paginationComponent from '@/widgets/pagination/paginationComponent.vue'
 
 const postStore = usePostStore()
 
-onMounted(() => {
-  postStore.fetchPosts()
-})
-
-// Добавляем watcher для отладки
-watch(
-  () => postStore.currentPage,
-  (newPage) => {
-    console.log('Page changed to:', newPage)
-    console.log('Current posts:', postStore.paginatedPosts)
-  }
-)
+onMounted(() => postStore.fetchPosts())
 </script>
 
 <style scoped>
 .posts-page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 59px;
   padding: 120px 112px 140px 112px;
   background-color: var(--main-white);
 }

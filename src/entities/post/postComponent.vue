@@ -1,36 +1,34 @@
 <template>
-  <div
-    class="post"
-    :class="{ 'post-hovered': isHovered }"
-    @mouseenter="isHovered = true"
-    @mouseleave="isHovered = false"
-  >
+  <div class="post">
     <div class="post-content">
-      <h2 class="post-title">
-        {{ post.title }}
-      </h2>
+      <app-image
+        width="280"
+        height="280"
+        :src="post.image"
+      />
 
-      <p class="post-description">
-        {{ post.body }}
-      </p>
+      <div class="post-content__info">
+        <p class="post-description">
+          {{ post.preview }}
+        </p>
+
+        <div class="read-more">
+          Read more
+        </div>
+      </div>
     </div>
 
-    <div class="read-more" :class="{ 'read-more-visible': isHovered }">
-      Read more
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import appImage from '~/shared/ui/appImage/appImage.vue'
 
 import type { Post } from '@/entities/post/types/post.type'
 
 defineProps<{
   post: Post
 }>()
-
-const isHovered = ref(false)
 </script>
 
 <style scoped>
@@ -43,43 +41,38 @@ const isHovered = ref(false)
   padding: 32px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: transform 0.3s ease;
 }
 
-.post-hovered {
+.post:hover {
   transform: translateY(-8px);
+}
+
+.post:hover .read-more {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .post-content {
   flex-grow: 1;
 }
 
-.post-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #101010;
+.post-description {
+  font-size: 20px;
 }
 
-.post-description {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #666;
+.post-content__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .read-more {
-  margin-top: 24px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
-  color: #101010;
+  color: var(--main-pink);
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
-}
-
-.read-more-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 </style>
