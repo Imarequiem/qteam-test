@@ -2,7 +2,12 @@
   <UHeader class="header">
     <UHeaderSection>
       <NuxtLink to="/" aria-label="Home">
-        <img src="/logo.svg" width="84" height="25" alt="Logo" />
+        <img
+          src="/logo.svg"
+          width="84"
+          height="25"
+          alt="Logo"
+        />
       </NuxtLink>
     </UHeaderSection>
 
@@ -24,17 +29,17 @@
       <UHeaderActions class="actions">
         <button-component
           class="language-button cursor-pointer"
-          icon="flag:gb-4x3"
-          variant="outline"
           rounded
-          :ui="{ base: 'w-[52px] h-[52px] flex items-center justify-center border-2 border-gray-200 hover:border-gray-300' }"
+          :icon="'flag:gb-4x3'"
+          :variant="'outline'"
+          :ui="{ base: 'w-[52px] h-[52px] flex items-center justify-center ring-0' }"
         />
 
         <button-component
           class="work-button text-white cursor-pointer"
-          label="Let's Talk"
           rounded
-          :ui="{ base: 'w-[142px] h-[52px] flex items-center justify-center text-xl' }"
+          label="Let's Talk"
+          :ui="{ base: 'w-[142px] h-[52px] flex items-center justify-center bg-[#111] text-xl' }"
           :style="{ backgroundColor: '#111' }"
         />
       </UHeaderActions>
@@ -76,5 +81,10 @@ import buttonComponent from '@/shared/ui/buttonComponent/buttonComponent.vue'
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+:deep(.language-button) {
+  background-color: var(--main-white) !important;
+  border: 2px solid #0000001A;
 }
 </style>

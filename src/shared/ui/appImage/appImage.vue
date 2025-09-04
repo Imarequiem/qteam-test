@@ -8,19 +8,20 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import type { Ref } from 'vue'
 
 const props = defineProps<{
   src: string
   fallback?: string
 }>()
 
-const currentSrc = ref(props.src)
+const currentSrc: Ref<string> = ref(props.src)
 
-const onError = () => {
+const onError = (): void => {
   currentSrc.value = props.fallback || '/noAvailable.svg'
 }
 
-watch(() => props.src, (newVal) => {
+watch(() => props.src, (newVal: string) => {
   currentSrc.value = newVal
 })
 </script>

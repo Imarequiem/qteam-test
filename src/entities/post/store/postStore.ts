@@ -21,7 +21,7 @@ export const usePostStore = defineStore('post', () => {
     return posts.value.slice(start, end)
   })
 
-  const fetchPosts = async () => {
+  const fetchPosts = async (): Promise<void> => {
     loading.value = true
     try {
       posts.value = await postApi.getAll()
@@ -42,7 +42,6 @@ export const usePostStore = defineStore('post', () => {
   const setCurrentPage = (page: number): void => {
     if (page >= 1 && page <= totalPages.value) {
       currentPage.value = page
-      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 

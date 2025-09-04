@@ -33,9 +33,9 @@
         <button-component
           class="footer-contact-list__office-btn text-white"
           target="_blank"
+          rounded
           :icon="'ic:baseline-near-me'"
           :to="office.url"
-          :rounded="true"
           :ui="{ base: 'w-8 h-8 p-0 flex items-center justify-center' }"
           :style="{ backgroundColor: 'var(--main-black)' }"
         />

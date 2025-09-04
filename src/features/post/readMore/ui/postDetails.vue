@@ -32,6 +32,8 @@ import appImage from '~/shared/ui/appImage/appImage.vue'
 
 import { createError } from '#imports'
 
+import type { Post } from '@/entities/post/types/post.type'
+
 const route = useRoute()
 const postStore = usePostStore()
 
@@ -39,7 +41,7 @@ if (postStore.posts.length === 0) {
   await postStore.fetchPosts()
 }
 
-const post = postStore.posts.find(p => p.id === route.params.id)
+const post:Post | undefined = postStore.posts.find(p => p.id === route.params.id)
 
 if (!post) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found' })

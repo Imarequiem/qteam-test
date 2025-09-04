@@ -2,8 +2,8 @@
   <div class="footer-big-button">
     <button-component
       class="text-white"
+      rounded
       :label="'Go'"
-      :rounded="true"
       :ui="{ base: 'w-[358px] h-[358px] pb-17 flex items-center justify-center text-xl' }"
       :style="{ backgroundColor: '#111' }"
     />

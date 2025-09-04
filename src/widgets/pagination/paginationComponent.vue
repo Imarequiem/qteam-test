@@ -1,35 +1,44 @@
 <template>
   <div class="pagination-wrapper">
-    <button
-      v-if="currentPageModel > 1"
+    <button-component
       class="pagination-button"
+      rounded
+      :class="{ hidden: currentPageModel <= 1 }"
+      :label="'<'"
+      :size="'lg'"
+      :variant="'outline'"
+      :ui="{ base: 'text-black ring-0' }"
       @click="currentPageModel--"
-    >
-      &lt;
-    </button>
+    />
 
-    <button
+    <button-component
       v-for="page in visiblePages"
-      class="pagination-button"
       :key="page"
-      :class="{ 'active': page === currentPageModel }"
+      class="button-page"
+      :class="{ active: page === currentPageModel }"
+      :label="String(page)"
+      :size="'lg'"
+      :ui="{ base: 'flex items-center justify-center text-md' }"
       @click="currentPageModel = page"
-    >
-      {{ page }}
-    </button>
+    />
 
-    <button
-      v-if="currentPageModel < totalPages"
+    <button-component
       class="pagination-button"
+      rounded
+      :class="{ hidden: currentPageModel >= totalPages }"
+      :label="'>'"
+      :size="'lg'"
+      :variant="'outline'"
+      :ui="{ base: 'text-black ring-0' }"
       @click="currentPageModel++"
-    >
-      &gt;
-    </button>
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+
+import buttonComponent from '@/shared/ui/buttonComponent/buttonComponent.vue'
 
 const props = defineProps<{
   currentPage: number
@@ -43,7 +52,7 @@ const emit = defineEmits<{
 
 const currentPageModel = computed<number>({
   get: () => props.currentPage,
-  set: (value) => emit('update:currentPage', value)
+  set: (value: number) => emit('update:currentPage', value)
 })
 
 const totalPages = computed<number>(() => Math.ceil(props.totalItems / props.perPage))
@@ -81,25 +90,39 @@ const visiblePages = computed<number[]>(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
+  border: 1px solid #E8E8E8;
   border-radius: 8px;
-  background-color: rgba(243, 243, 243, 1);
-  color: #101010;
+  background-color: rgba(255, 255, 255, 1) !important;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .pagination-button:hover {
-  background-color: rgba(232, 232, 232, 1);
+  background-color: rgba(232, 232, 232, 1) !important;
 }
 
-.pagination-button:active,
-.pagination-button.active {
-  color: white;
-  background-color: rgba(16, 16, 16, 1);
+.pagination-button.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-.pagination-button[disabled] {
-  display: none;
+.pagination-button,
+:deep(.button-page) {
+  width: 44px;
+  height: 44px;
+}
+
+:deep(.button-page) {
+  background-color: rgba(243, 243, 243, 1) !important;
+  color: #101010 !important;
+}
+
+:deep(.button-page:hover) {
+  background-color: rgba(232, 232, 232, 1) !important;
+}
+
+:deep(.button-page.active) {
+  color: white !important;
+  background-color: rgba(16, 16, 16, 1) !important;
 }
 </style>
