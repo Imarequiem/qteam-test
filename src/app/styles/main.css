@@ -5,8 +5,13 @@
 
 :root {
   --font-base: 'TT Commons', system-ui, sans-serif;
+  --main-black: #101010;
+  --main-white: #FFFFFF;
+  --main-grey: #E8E8E8;
+  --main-pink: #E2BEFF;
 }
 
 body {
   font-family: var(--font-base);
+  color: var(--main-black);
 }
