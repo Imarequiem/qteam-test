@@ -41,7 +41,7 @@ if (postStore.posts.length === 0) {
   await postStore.fetchPosts()
 }
 
-const post:Post | undefined = postStore.posts.find(p => p.id === route.params.id)
+const post: Post | undefined = postStore.posts.find(post => post.id === route.params.id)
 
 if (!post) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found' })
