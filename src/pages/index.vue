@@ -27,18 +27,18 @@
 import { watch, onMounted } from 'vue'
 import { usePostStore } from '~/entities/post/store/postStore'
 
-import postComponent from '@/entities/post/postComponent.vue'
+import postComponent from '@/features/post/postComponent.vue'
 import paginationComponent from '@/widgets/pagination/paginationComponent.vue'
 
-import { useScrollToTop } from '~/shared/lib/useScrollToTop'
+import { useScrollToTop } from '@/shared/lib/useScrollToTop'
 
 const postStore = usePostStore()
 
 const { scrollToTop } = useScrollToTop({ top: 250, behavior: 'auto' })
 
-onMounted(() => postStore.fetchPosts())
-
 watch(() => postStore.currentPage, () => scrollToTop('#posts'))
+
+onMounted(() => postStore.fetchPosts())
 </script>
 
 <style scoped>
