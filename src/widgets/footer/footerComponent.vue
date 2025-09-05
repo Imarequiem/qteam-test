@@ -1,28 +1,30 @@
 <template>
-  <UFooter class="footer">
-    <UFooterTop>
-      <UContainer :ui="{ padding: 'px-0' }" class="footer__top">
+  <u-footer class="footer">
+    <u-footer-top>
+      <u-container :ui="{ padding: 'px-0' }" class="footer__top">
         <div class="footer__inner">
-          <footerContactCta />
-          <footerContactList />
-        </div>
-      </UContainer>
-    </UFooterTop>
+          <footer-contact-cta />
 
-    <UFooterBottom class="footer__bottom">
+          <footer-contact-list />
+        </div>
+      </u-container>
+    </u-footer-top>
+
+    <u-footer-bottom class="footer__bottom">
       <UContainer :ui="{ padding: 'px-0' }">
-        <footerSocialBar />
+        <footer-social-bar />
       </UContainer>
-      <footerBigButton class="absolute -bottom-50 left-1/2 -translate-x-1/2" />
-    </UFooterBottom>
-  </UFooter>
+
+      <footer-big-button class="absolute -bottom-50 left-1/2 -translate-x-1/2" />
+    </u-footer-bottom>
+  </u-footer>
 </template>
 
 <script setup lang="ts">
-import footerContactCta from './footerContactCta/footerContactCta.vue'
-import footerContactList from './footerContactList/footerContactList.vue'
-import footerSocialBar from './footerSocialBar/footerSocialBar.vue'
-import footerBigButton from './footerBigButton/footerBigButton.vue'
+import footerContactCta from '@/widgets/footer/footerContactCta/footerContactCta.vue'
+import footerContactList from '@/widgets/footer/footerContactList/footerContactList.vue'
+import footerSocialBar from '@/widgets/footer/footerSocialBar/footerSocialBar.vue'
+import footerBigButton from '@/widgets/footer/footerBigButton/footerBigButton.vue'
 </script>
 
 <style scoped>

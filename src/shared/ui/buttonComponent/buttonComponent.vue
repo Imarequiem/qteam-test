@@ -1,5 +1,5 @@
 <template>
-  <UButton
+  <u-button
     v-bind="$attrs"
     class="button"
     :class="{ 'rounded-full': rounded }"
@@ -9,7 +9,7 @@
     :variant="variant"
   >
     {{ label }}
-  </UButton>
+  </u-button>
 </template>
 
 <script setup lang="ts">

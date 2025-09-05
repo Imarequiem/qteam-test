@@ -1,6 +1,6 @@
 <template>
-  <UHeader class="header">
-    <UHeaderSection>
+  <u-header class="header">
+    <u-header-section>
       <NuxtLink to="/" aria-label="Home">
         <img
           src="/logo.svg"
@@ -9,24 +9,24 @@
           alt="Logo"
         />
       </NuxtLink>
-    </UHeaderSection>
+    </u-header-section>
 
-    <UHeaderSection class="header__right-side">
-      <UHeaderNav class="links">
-        <UHeaderNavItem>
-          <NuxtLink to="/works" class="links__link">
+    <u-header-section class="header__right-side">
+      <u-header-nav class="links">
+        <u-header-nav-item>
+          <nuxt-link to="/works" class="links__link">
             Works
-          </NuxtLink>
-        </UHeaderNavItem>
+          </nuxt-link>
+        </u-header-nav-item>
 
-        <UHeaderNavItem>
-          <NuxtLink to="/about" class="links__link">
+        <u-header-nav-item>
+          <nuxt-link to="/about" class="links__link">
             About
-          </NuxtLink>
-        </UHeaderNavItem>
-      </UHeaderNav>
+          </nuxt-link>
+        </u-header-nav-item>
+      </u-header-nav>
 
-      <UHeaderActions class="actions">
+      <u-header-actions class="actions">
         <button-component
           class="language-button cursor-pointer"
           rounded
@@ -42,9 +42,9 @@
           :ui="{ base: 'w-[142px] h-[52px] flex items-center justify-center bg-[#111] text-xl' }"
           :style="{ backgroundColor: '#111' }"
         />
-      </UHeaderActions>
-    </UHeaderSection>
-  </UHeader>
+      </u-header-actions>
+    </u-header-section>
+  </u-header>
 </template>
 
 <script setup lang="ts">
