@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { watch, onMounted } from 'vue'
-import { usePostStore } from '~/entities/post/store/postStore'
+import { usePostStore } from '@/entities/post/store/postStore'
 
 import postComponent from '@/features/post/postComponent.vue'
 import paginationComponent from '@/widgets/pagination/paginationComponent.vue'

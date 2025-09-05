@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import buttonComponent from '~/shared/ui/buttonComponent/buttonComponent.vue'
+import buttonComponent from '@/shared/ui/buttonComponent/buttonComponent.vue'
 
 import { offices } from '@/shared/const/offices'
 </script>

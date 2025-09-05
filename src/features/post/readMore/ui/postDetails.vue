@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { usePostStore } from '@/entities/post/store/postStore'
 
-import appImage from '~/shared/ui/appImage/appImage.vue'
+import appImage from '@/shared/ui/appImage/appImage.vue'
 
 import { createError } from '#imports'
 

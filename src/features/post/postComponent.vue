@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import appImage from '~/shared/ui/appImage/appImage.vue'
+import appImage from '@/shared/ui/appImage/appImage.vue'
 
 import type { Post } from '@/entities/post/types/post.type'
 
