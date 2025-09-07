@@ -37,15 +37,17 @@ import type { Post } from '@/entities/post/types/post.type'
 const route = useRoute()
 const postStore = usePostStore()
 
-if (postStore.posts.length === 0) {
-  await postStore.fetchPosts()
-}
-
 const post: Post | undefined = postStore.posts.find(post => post.id === route.params.id)
 
 if (!post) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found' })
 }
+
+useAsyncData(async () => {
+  if (!postStore.posts.length) {
+    await postStore.fetchPosts()
+  }
+})
 </script>
 
 <style scoped>
